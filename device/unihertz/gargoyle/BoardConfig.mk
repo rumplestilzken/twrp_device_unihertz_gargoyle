@@ -1,8 +1,17 @@
 DEVICE_PATH := device/unihertz/gargoyle
 #TWRP_EVENT_LOGGING := true
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel.img
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+#Titan Specific for UFS and EMMC build
+DEVICE_ARCH_EMMC = true
+
+ifdef DEVICE_ARCH_EMMC
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/emmc/kernel.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/emmc/dtbo.img
+else
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/ufs/kernel.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/ufs/dtbo.img
+endif
+
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_BOOTIMG_HEADER_VERSION := 1
 
