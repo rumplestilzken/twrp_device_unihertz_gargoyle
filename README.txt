@@ -1,4 +1,4 @@
-TWRP 3.5.0_9 for Unihertz Titan (Android 10), semi-working alpha version v0.2
+TWRP 3.6.0_9 for Unihertz Titan (Android 10), semi-working alpha version v0.2
 ==============================================================
 
 This is TWRP recovery for Unihertz Titan smartphone. It works, but missing two essential features:
