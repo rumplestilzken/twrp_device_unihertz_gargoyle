@@ -11,7 +11,7 @@ Known Issues:
 That means that you won't be able to access user data (only system, vendor and other internal partitions),
 and transfer files over USB with MTP.
 
-Yet, it's still useful for removing bloatware/google services or installing Magisk and obtaining root access.  
+Yet, it's still useful for removing bloatware/google services or installing Magisk and obtaining root access.
 ADB and file transfers (adb pull/push) work fine.
 
 Use this TWRP version only if your really-REALLY want to install custom recovery and/or root.
@@ -34,7 +34,7 @@ Bootloader should be unlocked (see above).
 
 # Notes
 
-I've tried by best to make decryption work but haven't succeeded. I guess the problem is in 
+I've tried by best to make decryption work but haven't succeeded. I guess the problem is in
 TEE OS (TrustZone OS), it doesn't work correctly in TWRP for some reason. I've tried to start 'teed'
 and it seems to run, but the decryption still hangs somewhere in binder request over socket.
 
@@ -55,13 +55,21 @@ Then to sync up:
 
     repo sync
 
-Then copy all files in 'sources' directory, apply `patches/0001-unihertz-titan.patch`, run `cherrypick.sh`, and build for a device with recovery partition:
 
-     cd <source-dir>; export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_gargoyle-eng; mka recoveryimage
+1. Copy 'device' to twrp directory
+2. Apply `patches/0001-unihertz-titan.patch`
+  1. Apply patch c713d76 if you run into a build issue surrounding "check_radio_versions"
+  2. Apply patch 12b55e8 if you run into "'dict' object has no attribute 'iteritems'"
+  3.*See https://github.com/TeamWin/Team-Win-Recovery-Project/issues/1589*
+  4. If you run into issues about print statements, update your systems symlink from python3 to python2
+3. Run `cherrypick.sh`
+4. Build for a device with recovery partition:
 
-After that, execute 
+`cd <source-dir>; export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_gargoyle-eng; mka recoveryimage`
 
-    ./avbtool.py append_vbmeta_image --image recovery.img --partition_size 33554432 --vbmeta_image vbmeta.img
+After that, execute
+
+`./avbtool.py append_vbmeta_image --image recovery.img --partition_size 33554432 --vbmeta_image vbmeta.img`
 
 # Contacts
 rumplestilzken <rumplestilzken@gmail.com>
