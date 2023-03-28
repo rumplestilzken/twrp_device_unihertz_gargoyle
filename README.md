@@ -68,6 +68,7 @@ Then to sync up:
     ```cd <source-dir>; export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_gargoyle-eng; mka recoveryimage```
 
 After that, execute
+
     ./avbtool.py append_vbmeta_image --image recovery.img --partition_size 33554432 --vbmeta_image vbmeta.img
 
 # Contacts
