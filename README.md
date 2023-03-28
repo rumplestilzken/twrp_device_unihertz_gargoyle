@@ -1,4 +1,4 @@
-TWRP 3.6.0_9 for Unihertz Titan (Android 10), semi-working alpha version v0.2
+TWRP 3.7.0_9 for Unihertz Titan (Android 10), alpha version v0.2
 ==============================================================
 
 This is TWRP recovery for Unihertz Titan smartphone.
@@ -7,6 +7,7 @@ Known Issues:
     1. Userdata decryption
     2. MTP
     3. UFS based devices cannot mount any partitions
+    4. Boot hang at splash screen (UFS)
 
 That means that you won't be able to access user data (only system, vendor and other internal partitions),
 and transfer files over USB with MTP.
