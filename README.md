@@ -65,7 +65,7 @@ Then to sync up:
 3. Run `cherrypick.sh`
 4. Build for a device with recovery partition:
 
-    cd <source-dir>; export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_gargoyle-eng; mka recoveryimage
+    ```cd <source-dir>; export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_gargoyle-eng; mka recoveryimage```
 
 After that, execute
     ./avbtool.py append_vbmeta_image --image recovery.img --partition_size 33554432 --vbmeta_image vbmeta.img
